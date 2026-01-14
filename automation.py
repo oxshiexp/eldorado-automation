@@ -11,6 +11,8 @@ from scraper import EldoradoScraper
 from uploader import EldoradoUploader
 from monitor import EldoradoMonitor
 
+from telegram_notifier import get_notifier
+
 class EldoradoAutomation:
     def __init__(self, api_key: str = None, notification_email: str = None):
         """
@@ -219,6 +221,10 @@ class EldoradoAutomation:
 
 
 def main():
+    """Main automation orchestrator with Telegram notifications"""
+    notifier = get_notifier()
+    notifier.notify_start("Automation")
+    
     parser = argparse.ArgumentParser(description='Eldorado.gg Automation System')
     parser.add_argument('command', choices=['scrape', 'upload', 'monitor', 'sync', 'scrape-upload'],
                        help='Command to execute')
