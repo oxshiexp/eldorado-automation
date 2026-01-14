@@ -1,0 +1,32 @@
+[Unit]
+Description=Eldorado Automation - 24/7 Price Monitoring Service
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=your_username
+Group=your_username
+WorkingDirectory=/home/your_username/automation/eldorado-automation
+Environment="PATH=/home/your_username/automation/eldorado-automation/venv/bin"
+ExecStart=/home/your_username/automation/eldorado-automation/venv/bin/python hourly_monitor_execution.py
+
+# Restart policy
+Restart=always
+RestartSec=60
+
+# Logging
+StandardOutput=append:/var/log/eldorado-automation/service.log
+StandardError=append:/var/log/eldorado-automation/error.log
+SyslogIdentifier=eldorado-automation
+
+# Resource limits (optional)
+MemoryLimit=512M
+CPUQuota=50%
+
+# Security hardening (optional)
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
