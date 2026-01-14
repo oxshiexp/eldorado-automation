@@ -10,6 +10,8 @@ from datetime import datetime
 import time
 import os
 
+from telegram_notifier import get_notifier
+
 class EldoradoUploader:
     def __init__(self, api_key: str = None, seller_id: str = None):
         """
@@ -309,4 +311,7 @@ def main():
 
 
 if __name__ == "__main__":
+    notifier = get_notifier()
+    notifier.notify_start("Uploader")
+    
     main()
