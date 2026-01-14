@@ -10,6 +10,8 @@ from typing import Dict, List, Optional
 from scraper import EldoradoScraper
 import difflib
 
+from telegram_notifier import get_notifier
+
 class EldoradoMonitor:
     def __init__(self, notification_email: str = None):
         """
@@ -330,4 +332,7 @@ def main():
 
 
 if __name__ == "__main__":
+    notifier = get_notifier()
+    notifier.notify_start("Price Monitor")
+    
     main()
