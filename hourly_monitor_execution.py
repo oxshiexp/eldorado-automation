@@ -7,6 +7,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+from telegram_notifier import get_notifier
+
 def create_snapshot_dir():
     """Create snapshot directory if not exists"""
     snapshot_dir = Path('snapshots')
