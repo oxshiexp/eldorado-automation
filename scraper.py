@@ -11,6 +11,8 @@ from typing import Dict, List, Optional
 from datetime import datetime
 import time
 
+from telegram_notifier import get_notifier
+
 class EldoradoScraper:
     def __init__(self):
         self.session = requests.Session()
@@ -273,4 +275,8 @@ def main():
     
 
 if __name__ == "__main__":
+    # Initialize Telegram notifier
+    notifier = get_notifier()
+    notifier.notify_start("Scraper")
+    
     main()
