@@ -1,0 +1,16 @@
+[Unit]
+Description=OXSHI Price Monitor Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/eldorado-automation/seller_monitoring
+ExecStart=/usr/bin/python3 /root/eldorado-automation/seller_monitoring/seller_monitor.py
+Restart=on-failure
+RestartSec=60
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
