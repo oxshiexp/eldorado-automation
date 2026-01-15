@@ -1,0 +1,18 @@
+[Unit]
+Description=Eldorado Seller Activity Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/eldorado-automation
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+EnvironmentFile=/root/eldorado-automation/.env
+ExecStart=/usr/bin/python3 seller_monitoring/seller_monitor.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
