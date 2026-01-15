@@ -1,0 +1,23 @@
+{
+  "sellers": [
+    {
+      "username": "example_seller_1",
+      "display_name": "Example Shop A",
+      "notify_new_product": true,
+      "notify_price_change": true,
+      "notify_edit": true,
+      "notify_delete": true
+    },
+    {
+      "username": "example_seller_2",
+      "display_name": "Competitor Shop B",
+      "notify_new_product": true,
+      "notify_price_change": true,
+      "notify_edit": false,
+      "notify_delete": false
+    }
+  ],
+  "monitoring_interval_minutes": 10,
+  "telegram_enabled": true,
+  "rate_limit_delay_seconds": 2
+}
