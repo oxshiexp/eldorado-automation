@@ -1,0 +1,16 @@
+[Unit]
+Description=OXSHI Telegram Bot Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/eldorado-automation/seller_monitoring
+ExecStart=/usr/bin/python3 /root/eldorado-automation/seller_monitoring/telegram_bot.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
